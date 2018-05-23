@@ -79,9 +79,9 @@ if __name__ == "__main__":
     """
     Call functions
     """
-    #val = createManufacturerData(25, 1)
-    #val = createBrandData(25, 1, 9)
-    val = createModelData(25, 1, 5)
+    #val = createManufacturerData(size, lastIndexMan)
+    #val = createBrandData(size, lastIndexBrand, 10)
+    val = createModelData(size, 1, 10)
 
     """
     Create Scripts
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     brand        = "INSERT INTO BRAND VALUES('%s','%s','%s','%s');"
     model        = "INSERT INTO MODEL VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');"
 
-    filename = 'Insert_Data_Model.sql'
+    filename = 'InsertData_On_Model.sql'
 
     script = list()
     for i in val:

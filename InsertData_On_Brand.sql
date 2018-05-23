@@ -1,0 +1,10 @@
+INSERT INTO BRAND VALUES('1','Yabucoa Bay','mid-level','1');
+INSERT INTO BRAND VALUES('2','Coamo Caverns','mid-level','5');
+INSERT INTO BRAND VALUES('3','Coamo Caverns','premium','6');
+INSERT INTO BRAND VALUES('4','Grey Humacao','mid-level','5');
+INSERT INTO BRAND VALUES('5','Arecibo Sunshine','mid-level','5');
+INSERT INTO BRAND VALUES('6','Coamo Caverns','premium','6');
+INSERT INTO BRAND VALUES('7','Grey Humacao','mid-level','2');
+INSERT INTO BRAND VALUES('8','Coamo Caverns','entry-level','2');
+INSERT INTO BRAND VALUES('9','San Juan Hollyday','mid-level','1');
+INSERT INTO BRAND VALUES('10','San Juan Hollyday','mid-level','1');
