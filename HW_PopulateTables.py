@@ -29,12 +29,13 @@ def createManufacturerData(numberValues, lastIndex):
 
 # Create random data for brand
 def createBrandData(numberValues, lastIndex, lastManIndex):
+    availableBrands = ['San Juan Hollyday', 'Yabucoa Bay', 'Coamo Caverns', 'Arecibo Sunshine', 'Grey Humacao']
     availableLevels = ['premium', 'mid-level', 'entry-level']
     valuesList = list()
     for i in range(numberValues):
         valuesList.append([
             lastIndex + i,                        # BRAND_ID
-            barnum.create_nouns(),                # BRAND_NAME
+            availableBrands[random.randint(0,4)], # BRAND_NAME
             availableLevels[random.randint(0,2)], # BRAND_LEVEL
             random.randint(1,lastManIndex)        # MAN_CODE
         ])
@@ -59,6 +60,11 @@ def createModelData(numberValues, lastIndex, lastBrandIndex):
         ])
     return valuesList
 
+def saveScript(name,sql):
+    file = open(name,'w+')
+    for i in sql:
+        file.write(i+'\n')
+    file.close()
 
 if __name__ == "__main__":
 
@@ -69,11 +75,27 @@ if __name__ == "__main__":
     lastIndexMan   = 1  # how many primary keys do you have on manufacturer table
     lastIndexBrand = 1  # how many primary keys do you have on manufacturer table
     lastIndexModel = 1  # how many primary keys do you have on manufacturer table
-    
+
     """
     Call functions
     """
-    val = createManufacturerData(10, 2)
-    #val = createModelData(size, 1,100)
+    #val = createManufacturerData(25, 1)
+    #val = createBrandData(25, 1, 9)
+    val = createModelData(25, 1, 5)
 
-    print val
+    """
+    Create Scripts
+    """
+    manufacturer = "INSERT INTO MANUFACTURER VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s');"
+    brand        = "INSERT INTO BRAND VALUES('%s','%s','%s','%s');"
+    model        = "INSERT INTO MODEL VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');"
+
+    filename = 'Insert_Data_Model.sql'
+
+    script = list()
+    for i in val:
+        #script.append(manufacturer % (i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8]))
+        #script.append(brand % (i[0],i[1],i[2],i[3]))
+        script.append(model % (i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8],i[9]))
+
+    saveScript(filename, script)
