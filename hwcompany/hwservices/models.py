@@ -13,7 +13,7 @@ class Manufacturer(models.Model):
     MAN_ZIP      = models.IntegerField() # 5
     MAN_AREACODE = models.IntegerField() # 3
     MAN_PHONE    = models.CharField(max_length=8)
-    MAN_ACCNUM   = models.IntegerField() # 16
+    MAN_ACCNUM   = models.CharField(max_length=16) # 16
 
 class Brand(models.Model):
     BRAND_LEVEL_CHOICES = (

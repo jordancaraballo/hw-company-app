@@ -20,8 +20,8 @@ def createManufacturerData(numberValues, lastIndex):
             barnum.create_street(),             # MAN_STREET
             address[1],                         # MAN_CITY
             address[2],                         # MAN_STATE
-            address[0],                         # MAN_ZIP
-            phone[0],                           # MAN_AREACODE
+            int(address[0]),                         # MAN_ZIP
+            int(phone[0]),                           # MAN_AREACODE
             phone[1]+"-"+phone[2],              # MAN_PHONE
             ((barnum.create_cc_number())[1])[0] # MAN_ACCNUM
         ])
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     """
     Global variables
     """
-    size           = 10 # how many rows do you want to add
+    size           = 60 # how many rows do you want to add
     lastIndexMan   = 1  # how many primary keys do you have on manufacturer table
     lastIndexBrand = 1  # how many primary keys do you have on manufacturer table
     lastIndexModel = 1  # how many primary keys do you have on manufacturer table
@@ -79,9 +79,9 @@ if __name__ == "__main__":
     """
     Call functions
     """
-    #val = createManufacturerData(size, lastIndexMan)
-    #val = createBrandData(size, lastIndexBrand, 10)
-    val = createModelData(size, 1, 10)
+    val = createManufacturerData(size, lastIndexMan)
+    #val = createBrandData(size, lastIndexBrand, 60)
+    #val = createModelData(size, 1, 10)
 
     """
     Create Scripts
@@ -90,12 +90,12 @@ if __name__ == "__main__":
     brand        = "INSERT INTO BRAND VALUES('%s','%s','%s','%s');"
     model        = "INSERT INTO MODEL VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');"
 
-    filename = 'InsertData_On_Model.sql'
+    filename = 'InsertData_On_Manufacturer.sql'
 
     script = list()
     for i in val:
-        #script.append(manufacturer % (i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8]))
+        script.append(manufacturer % (i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8]))
         #script.append(brand % (i[0],i[1],i[2],i[3]))
-        script.append(model % (i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8],i[9]))
+        #script.append(model % (i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8],i[9]))
 
     saveScript(filename, script)
