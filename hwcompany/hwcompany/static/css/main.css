@@ -1794,6 +1794,13 @@ input::-moz-focus-inner {
   padding: 2.1rem 15rem 2.1rem 4rem;
   color: #ffffff;
 }
+.home-sidelinks-title a {
+  display: block;
+  height: 10px;
+  width: 10px;
+  padding: 2.1rem 15rem 2.1rem 4rem;
+  color: #ffffff;
+}
 .home-sidelinks span {
   display: block;
   font-family: "metropolis-regular", sans-serif;

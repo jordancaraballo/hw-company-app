@@ -1,7 +1,9 @@
 # Add data through manage.py shell
 # Manufacturer model
+# python manage.py shell
+# Author: Jordan A Caraballo Vega
 from hwservices.models import Manufacturer, Brand, Model
-with open('/Users/jacaraba/Desktop/hw-company-app/DataManu.sql') as f:
+with open('../data/DataManu.sql') as f:
     lines = f.read().splitlines()
 
 for l in lines:
@@ -11,7 +13,7 @@ for l in lines:
 
 # Brand model
 from hwservices.models import Manufacturer, Brand, Model
-with open('/Users/jacaraba/Desktop/hw-company-app/DataBrand.sql') as f:
+with open('../data/DataBrand.sql') as f:
     lines = f.read().splitlines()
 objectsList = Manufacturer.objects.all()
 for l in lines:
@@ -21,7 +23,7 @@ for l in lines:
 
 # Model number
 from hwservices.models import Manufacturer, Brand, Model
-with open('/Users/jacaraba/Desktop/hw-company-app/DataModel.sql') as f:
+with open('../data/DataModel.sql') as f:
     lines = f.read().splitlines()
 objectsList = Brand.objects.all()
 for l in lines:

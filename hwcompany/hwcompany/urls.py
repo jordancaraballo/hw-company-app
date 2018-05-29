@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', v.index, name='index'),
     path('services', admin.site.urls),
-    path('reports',v.manufacturers,name='manufacturers'),
+    path('reports',v.tables,name='tables'),
 
 ]
 urlpatterns += staticfiles_urlpatterns()
